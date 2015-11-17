@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117172655) do
+ActiveRecord::Schema.define(version: 20151117181624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,10 +26,11 @@ ActiveRecord::Schema.define(version: 20151117172655) do
     t.string   "to"
     t.string   "from"
     t.string   "body"
-    t.boolean  "starred"
+    t.boolean  "starred",         default: false
     t.integer  "api_v1_label_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "archived",        default: false
   end
 
   add_index "api_v1_messages", ["api_v1_label_id"], name: "index_api_v1_messages_on_api_v1_label_id", using: :btree
