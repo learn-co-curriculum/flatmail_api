@@ -1,0 +1,11 @@
+Models:
+  Label
+    :name, :has_many => Messages
+  Message
+    :to, :from, :body, :belongs_to => Label, :starred (Boolean)
+
+/api/v1/messages
+/api/v1/messages/:id
+
+/api/v1/labels/
+/api/v1/labels/:id

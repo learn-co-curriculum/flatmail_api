@@ -1,7 +1,21 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+later = Api::V1::Label.create({name: "For Later"})
+important = Api::V1::Label.create({name: "Important"})
+
+
+10.times do |i|
+  Api::V1::Message.create(
+                      to: "Steven Nunez",
+                      from: "Barack Obama",
+                      body: "Important Message #{i}",
+                      label: important
+                    )
+end
+
+10.times do |i|
+  Api::V1::Message.create(
+                      to: "Steven Nunez",
+                      from: "Publisher's Clearing House",
+                      body: "Unimportant Message #{i}",
+                      label: later
+                    )
+end
