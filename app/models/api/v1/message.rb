@@ -15,6 +15,6 @@ class Api::V1::Message < ActiveRecord::Base
   end
 
   def self.inbox
-    archived.not
+    where(archived: false)
   end
 end
