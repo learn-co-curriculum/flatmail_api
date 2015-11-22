@@ -1,11 +1,11 @@
 class Api::V1::MessagesController < ApplicationController
   def index
-    @messages = Api::V1::Message.from_query(params[:filter])
+    @messages = Message.from_query(params[:filter])
     render json: @messages
   end
 
   def update
-    @message = Api::V1::Message.find(params[:id])
+    @message = Message.find(params[:id])
     @message.update(safe_message)
     render json: @message
   end

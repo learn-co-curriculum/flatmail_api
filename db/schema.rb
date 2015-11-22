@@ -11,29 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117181624) do
+ActiveRecord::Schema.define(version: 20151122185051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "api_v1_labels", force: :cascade do |t|
+  create_table "labels", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "api_v1_messages", force: :cascade do |t|
+  create_table "messages", force: :cascade do |t|
     t.string   "to"
     t.string   "from"
     t.string   "body"
-    t.boolean  "starred",         default: false
-    t.integer  "api_v1_label_id"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.boolean  "archived",        default: false
+    t.boolean  "starred",    default: false
+    t.integer  "label_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
-  add_index "api_v1_messages", ["api_v1_label_id"], name: "index_api_v1_messages_on_api_v1_label_id", using: :btree
+  add_index "messages", ["label_id"], name: "index_messages_on_label_id", using: :btree
 
-  add_foreign_key "api_v1_messages", "api_v1_labels"
+  add_foreign_key "messages", "labels"
 end

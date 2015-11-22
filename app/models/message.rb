@@ -1,5 +1,5 @@
-class Api::V1::Message < ActiveRecord::Base
-  belongs_to :label, foreign_key: :api_v1_label_id
+class Message < ActiveRecord::Base
+  belongs_to :label
 
   def self.from_query(query)
     return all unless ["starred", "archived", "inbox"].include?(query)
