@@ -27,4 +27,4 @@ Things you may want to cover:
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
 
-<a href='https://learn.co/lessons/flatmail_api' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/flatmail_api' title='== README'>== README</a> on Learn.co and start learning to code for free.</p>
